@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog | Joseph Ndung'u Mutunga</title>
+
+<style>
+/* ---------- GLOBAL ---------- */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #f8f9fa;
+  color: #222;
+  scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Prevent protruding footer */
+}
+main {
+  flex: 1; /* Push footer to bottom */
+}
+h1,h2,h3,h4 {margin:0;}
+p {line-height:1.6;}
+a {text-decoration:none;color:inherit;transition:color 0.3s;}
+a:hover {color:#00884b;}
+
+/* ---------- NAVBAR ---------- */
+.navbar {
+  position: fixed; top: 0; left:0; width:100%;
+  display:flex; align-items:center; padding:10px 20px;
+  background:#00cc88; color:#fff;
+  box-shadow:0 2px 6px rgba(0,0,0,0.1); z-index:1000;
+}
+.navbar .inner { display:flex; align-items:center; width:100%; gap:16px; }
+.navbar .logo { display:flex; align-items:center; gap:10px; flex:0 0 auto; }
+.navbar .logo img { width:64px;height:64px;border-radius:8px; object-fit:cover; }
+.navbar .logo span { font-size:1.05rem; font-weight:600; color:#fff; white-space:nowrap; }
+#nav-links {
+  list-style:none;
+  display:flex;
+  gap:18px;
+  margin:0; padding:0;
+  align-items:center; justify-content:flex-end;
+  flex:1 1 auto;
+  max-width:calc(100% - 220px);
+  box-sizing:border-box;
+  white-space:nowrap;
+}
+#nav-links li{font-weight:600;}
+#nav-links a{color:#fff; padding:6px 8px; display:inline-block;}
+#nav-links a:hover{background:rgba(255,255,255,0.12); border-radius:5px;}
+
+/* ---------- HERO ---------- */
+.blog-hero {
+  height: 400px;
+  background: url('assets/blog.jpg') center/cover no-repeat;
+  display:flex; justify-content:center; align-items:center; text-align:center;
+  position: relative;
+  margin-top:66px; /* Avoid overlap with navbar */
+}
+.blog-hero::before {
+  content:''; position:absolute; inset:0;
+  background: rgba(0,0,0,0.5);
+}
+.blog-hero h1 {
+  position: relative; z-index:2; color:#fff; font-size:3rem;
+}
+
+/* ---------- BLOG POSTS ---------- */
+.blog-posts {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px 60px; /* Added bottom padding to avoid overlap with footer */
+}
+.blog-post {
+  background:#fff;
+  margin-bottom:40px;
+  border-radius:12px;
+  box-shadow:0 4px 15px rgba(0,0,0,0.1);
+  overflow:hidden;
+}
+.blog-post img.hero-img {
+  width:100%;
+  height:300px;
+  object-fit:cover;
+}
+.blog-post .content {
+  padding:20px;
+}
+.blog-post .content h2 {
+  color:#00cc88;
+  margin-bottom:15px;
+}
+.blog-post .content p {
+  margin-bottom:15px;
+}
+.blog-post .content ul {
+  padding-left:20px;
+  margin-bottom:15px;
+}
+.blog-post .content ul li {
+  margin-bottom:10px;
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+  background:#00cc88;
+  color:#fff;
+  text-align:center;
+  padding:15px 10px;
+  font-size:0.95rem;
+  margin-top:auto;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:768px){
+  .blog-post img.hero-img { height:200px; }
+  #nav-links {
+    flex-direction:column;
+    display:none;
+    position:absolute;
+    top:66px; left:0;
+    width:100%;
+    background:#00cc88;
+    padding:14px 18px;
+    gap:10px;
+  }
+  #nav-links.show { display:flex; }
+  #nav-links li {
+    width:100%;
+    padding:8px 0;
+    border-bottom:1px solid rgba(255,255,255,0.12);
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="inner">
+    <div class="logo">
+      <img src="assets/GeoSense.png" alt="Logo">
+      <span>Geosense Solutions</span>
+    </div>
+    <div class="menu-toggle" id="menu-toggle"><span></span><span></span><span></span></div>
+    <ul id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <!-- HERO -->
+  <section class="blog-hero">
+    <h1>My Blogs</h1>
+  </section>
+
+  <!-- BLOG POSTS -->
+  <section class="blog-posts">
+
+    <!-- BLOG 1 -->
+    <div class="blog-post">
+      <img class="hero-img" src="assets/DRONE IN AGRI.jpg" alt="Drones in Agriculture">
+      <div class="content">
+        <h2>The Role of Drones in Modern Agriculture: Transforming Farming from the Sky</h2>
+        <p>Agriculture has always been the backbone of human civilization, but as global population grows and climate change threatens food security, smarter farming techniques are essential. One of the most exciting innovations is the use of drones in agriculture.</p>
+        <h3>What Are Agricultural Drones?</h3>
+        <p>Drones are UAVs equipped with cameras, sensors, or spraying systems that help farmers monitor, analyze, and manage fields quickly and efficiently.</p>
+        <h3>Key Applications of Drones</h3>
+        <ul>
+          <li><strong>Crop Monitoring & Health Assessment:</strong> Early detection of pests, diseases, or nutrient stress.</li>
+          <li><strong>Precision Agriculture:</strong> Targeted irrigation, fertilization, and pesticide application.</li>
+          <li><strong>Planting & Seeding:</strong> Automated seed planting and nutrient spraying.</li>
+          <li><strong>Crop Spraying:</strong> Even distribution of fertilizers and pesticides.</li>
+          <li><strong>Irrigation Management:</strong> Identify dry or overwatered areas.</li>
+          <li><strong>Field Mapping & 3D Modeling:</strong> High-resolution maps for planning and analysis.</li>
+          <li><strong>Livestock Monitoring:</strong> Track and monitor animals in open fields.</li>
+        </ul>
+        <h3>Benefits</h3>
+        <ul>
+          <li>Increased efficiency</li>
+          <li>Cost savings</li>
+          <li>Improved yields</li>
+          <li>Environmental sustainability</li>
+          <li>Data-driven decisions</li>
+        </ul>
+        <p>Challenges include initial investment, regulations, technical expertise, and weather limitations. Future drones will be more autonomous and integrated with AI and GIS platforms.</p>
+      </div>
+    </div>
+
+    <!-- BLOG 2 -->
+    <div class="blog-post">
+      <img class="hero-img" src="assets/AI IN FARMING.jpg" alt="AI in Urban Tea Farming">
+      <div class="content">
+        <h2>The Role of AI in Urban Tea Farming: Cultivating Smarter Cities</h2>
+        <p>Urban farming is evolving with AI to make small-scale tea production efficient and sustainable in cities. AI-powered sensors, precision agriculture, and robotics are transforming traditional farming practices.</p>
+        <h3>How AI Transforms Urban tea Farming</h3>
+        <ul>
+          <li><strong>Precision Crop Monitoring:</strong> Real-time detection of stress, pests, and diseases.</li>
+          <li><strong>Smart Irrigation & Water Management:</strong> Optimized water use through AI models.</li>
+          <li><strong>Yield Prediction & Planning:</strong> Machine learning forecasts crop yields for planning.</li>
+          <li><strong>Automated Crop Care:</strong> Robotics manage tasks like weeding, trimming, and spraying.</li>
+          <li><strong>Supply Chain Optimization:</strong> Reduces transport delays and post-harvest losses.</li>
+          <li><strong>Climate Adaptation:</strong> AI-driven models help adapt crops to urban environments.</li>
+        </ul>
+        <h3>Benefits</h3>
+        <ul>
+          <li>Higher efficiency in limited spaces</li>
+          <li>Lower costs</li>
+          <li>Sustainability</li>
+          <li>Data-driven farming</li>
+          <li>Food-energy security</li>
+        </ul>
+        <p>Challenges include cost, technical skills, and infrastructure needs. AI integration is already reshaping urban farming into smart, resilient systems.</p>
+      </div>
+    </div>
+
+    <!-- BLOG 3 -->
+    <div class="blog-post">
+      <img class="hero-img" src="assets/gisblog.jpg" alt="GIS">
+      <div class="content">
+        <h2>Mapping for Tomorrow: How GIS is Revolutionizing Land and Resource Management</h2>
+        <p><strong>What Is GIS?</strong> Geographic Information Systems (GIS) capture, store, analyze, and display spatial data, connecting information to location.</p>
+        <p><strong>Applications in Land and Resource Management:</strong></p>
+        <ul>
+          <li>Urban Planning and Infrastructure – Efficient city growth and transport design.</li>
+          <li>Environmental Monitoring – Track deforestation, pollution, and land degradation.</li>
+          <li>Disaster Management – Map flood zones, landslides, fire risks.</li>
+          <li>Agriculture & Food Security – Monitor crops, soil, and irrigation.</li>
+          <li>Resource Exploration & Conservation – Manage water, forests, and protected areas.</li>
+        </ul>
+        <p>GIS empowers smarter decisions by integrating spatial data with AI, remote sensing, and IoT for sustainable futures.</p>
+      </div>
+    </div>
+
+    <!-- BLOG 4 -->
+    <div class="blog-post">
+      <img class="hero-img" src="assets/CROP HEALTH.jpg" alt="Remote Sensing Crop Health">
+      <div class="content">
+        <h2>The Use of Remote Sensing in Monitoring Crop Health</h2>
+        <p>Remote sensing revolutionizes how farmers monitor crop health, saving time and resources while providing data-driven insights across large areas.</p>
+        <h3>What Is Remote Sensing?</h3>
+        <p>Using satellites, drones, and aircraft equipped with sensors, remote sensing collects information on crop growth, stress, and nutrient levels without physical contact.</p>
+        <h3>Applications</h3>
+        <ul>
+          <li><strong>Vegetation Indices:</strong> NDVI measures plant vigor.</li>
+          <li><strong>Early Detection of Stress:</strong> Identify pest attacks, nutrient deficiencies, or water stress early.</li>
+          <li><strong>Water & Irrigation Management:</strong> Optimize irrigation using thermal imaging.</li>
+          <li><strong>Nutrient Monitoring:</strong> Detect nutrient imbalances through spectral analysis.</li>
+          <li><strong>Disease Detection:</strong> Identify and isolate affected areas to prevent spread.</li>
+          <li><strong>Growth & Yield Estimation:</strong> Monitor growth stages and forecast yields.</li>
+        </ul>
+        <p>Remote sensing improves efficiency, precision, sustainability, and early intervention, although challenges like cloud cover, cost, and technical expertise exist.</p>
+      </div>
+    </div>
+
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2025 Joseph Ndung'u Mutunga | All Rights Reserved</p>
+</footer>
+
+<!-- JS for Mobile Menu -->
+<script>
+const menuToggle = document.getElementById('menu-toggle');
+if(menuToggle){
+  menuToggle.addEventListener('click',()=>{
+    document.getElementById('nav-links').classList.toggle('show');
+  });
+}
+</script>
+
+</body>
+</html>

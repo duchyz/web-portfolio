@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Joseph Ndung'u Mutunga | Portfolio</title>
+
+<style>
+/* ---------- GLOBAL ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: #222;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  background: #f8f9fa;
+  line-height: 1.6;
+}
+
+h1, h2, h3 { margin: 0; }
+a { text-decoration: none; color: inherit; transition: color 0.3s; }
+a:hover { color: #00cc88; }
+
+/* ---------- NAVBAR ---------- */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  display: flex; align-items: center;
+  padding: 8px 20px;
+  background: #00cc88; color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+.navbar .inner {
+  display:flex;
+  align-items:center;
+  width:100%;
+  gap:16px;
+}
+.navbar .logo {
+  display: flex; align-items: center; gap: 10px; flex: 0 0 auto;
+}
+.navbar .logo img {
+  width: 64px; height: 64px; border-radius: 8px; object-fit: cover;
+}
+.navbar .logo span {
+  font-size: 1.05rem; font-weight: 600; color: #fff; white-space: nowrap;
+}
+#nav-links {
+  list-style: none; display: flex; gap: 18px;
+  margin: 0; padding: 0; align-items: center; justify-content: flex-end;
+  flex: 1 1 auto; max-width: calc(100% - 220px);
+}
+.navbar li { font-weight: 600; }
+.navbar a {
+  color: #fff; padding: 6px 8px; display:inline-block;
+}
+.navbar a:hover,
+.navbar a.active {
+  background: rgba(255,255,255,0.15);
+  border-radius: 5px;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  position: relative;
+  height: calc(100vh - 80px);
+  margin-top: 80px;
+  background: url('assets/pexels-tomas-malik-793526-1670457.jpg') center/cover no-repeat;
+  /* Removed background-attachment: fixed to fix page locking */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.45);
+}
+.hero-content {
+  position: relative; z-index: 2; color: #fff;
+  animation: fadeUp 1.2s ease forwards; padding: 0 12px;
+}
+.hero-content h1 {
+  font-size: 3rem; margin-bottom: 15px; letter-spacing: 1px;
+}
+.hero-content h2 { font-size: 1.4rem; color: #00ff99; min-height: 1.6rem; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- ABOUT ME ---------- */
+.about {
+  background:#0a0a0a;
+  color:#fff;
+  padding:100px 40px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  border-top:2px solid #00ff99;
+  min-height: 100vh;
+}
+.about-container {
+  display:flex;
+  flex-wrap:wrap;
+  max-width:1100px;
+  align-items:flex-start;
+  gap:40px;
+}
+.about-img {
+  flex:1 1 400px;
+  display:flex;
+  justify-content:center;
+}
+.about-img img {
+  width:100%;
+  max-width:420px;
+  height:auto;
+  border-radius:15px;
+  object-fit:cover;
+  border:3px solid #00ff99;
+  box-shadow:0 0 25px rgba(0,255,153,0.3);
+}
+.about-text {
+  flex:2 1 500px;
+}
+.about-text h2 {
+  color:#00ff99; font-size:2rem; margin-bottom:20px;
+}
+.about-section { margin-bottom:20px; }
+.about-section h3 {
+  color:#00ffcc; margin-bottom:8px; font-size:1.2rem;
+}
+.about-section p, .about-section ul {
+  font-size:0.95rem; color:#ccc; line-height:1.6;
+}
+.about-section ul { list-style:disc; padding-left:20px; }
+
+@media(max-width:900px){
+  .about-container{ flex-direction:column; text-align:center; }
+  .about-img img{ max-width:280px; }
+}
+
+/* ---------- AWARDS ---------- */
+.awards {
+  background:#111;
+  color:#fff;
+  padding:80px 40px;
+  text-align:center;
+  border-top:2px solid #00ff99;
+  min-height: 60vh;
+}
+.awards h2 {
+  color:#00ff99;
+  font-size:2rem;
+  margin-bottom:30px;
+}
+.award-list {
+  max-width:900px;
+  margin:0 auto;
+  text-align:left;
+}
+.award-list ul {
+  list-style: square;
+  color:#ccc;
+  font-size:1rem;
+  line-height:1.8;
+}
+.award-list li { margin-bottom:10px; }
+
+/* ---------- FOOTER ---------- */
+.footer {
+  background: #00cc88;
+  text-align:center;
+  padding:20px 10px;
+  color:#fff;
+  border-top: 2px solid #00ff99;
+}
+.footer p { margin-bottom: 8px; font-size: 0.9rem; }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="inner">
+    <div class="logo">
+      <img src="assets/GeoSense.png" alt="Logo">
+      <span>Geosense Solutions</span>
+    </div>
+    <ul id="nav-links">
+      <li><a href="Index.html">Home</a></li>
+      <li><a href="about.html" class="active">About Me</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <h1>JOSEPH NDUNG'U MUTUNGA</h1>
+    <h2><span class="typing-text"></span></h2>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-container">
+    <div class="about-img">
+      <img src="assets/about me.jpg" alt="Joseph Ndung'u Mutunga">
+    </div>
+    <div class="about-text">
+      <h2>About Me</h2>
+      <p>I am <strong>Joseph Ndung’u Mutunga</strong>, a passionate <strong>Remote Sensing and GIS Specialist</strong> with a strong focus on leveraging geospatial data to solve real-world challenges.</p>
+
+      <div class="about-section">
+        <h3>Mission</h3>
+        <p>To utilize geospatial technologies and data science to drive sustainable, data-informed decision-making that improves lives and the environment.</p>
+      </div>
+
+      <div class="about-section">
+        <h3>Vision</h3>
+        <p>To become a leading innovator in geospatial intelligence, creating solutions that enhance environmental resilience, urban planning, and resource management.</p>
+      </div>
+
+      <div class="about-section">
+        <h3>Core Values</h3>
+        <ul>
+          <li>Integrity in data-driven decision-making</li>
+          <li>Innovation through continuous learning</li>
+          <li>Collaboration for global solutions</li>
+          <li>Commitment to sustainable development</li>
+        </ul>
+      </div>
+
+      <div class="about-section">
+        <h3>My Approach in GIS</h3>
+        <p>I combine analytical skills, remote sensing data, and machine learning to extract meaningful patterns from spatial datasets.</p>
+      </div>
+
+      <div class="about-section">
+        <h3>What I Aim to Achieve</h3>
+        <p>To build geospatial systems that inform policy, optimize resource use, and improve resilience against climate and environmental challenges.</p>
+      </div>
+
+      <div class="about-section">
+        <h3>Solving Real-Life Problems</h3>
+        <p>Through GIS and AI, I focus on creating practical solutions — from monitoring environmental changes to supporting early warning systems and enhancing agricultural productivity.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section class="awards">
+  <h2>Awards & Achievements</h2>
+  <div class="award-list">
+    <ul>
+      <li><strong>1st Position</strong> – GEOSK Symposium at RCMRD</li>
+      <li><strong>2nd Place</strong> – Dedan Kimathi University Hackathon</li>
+      <li><strong>ESRI Certifications</strong> – Impact on Modern Geo Apps & Network Analysis</li>
+      <li><strong>NASA Lifeline Simulations</strong> – Certificate of Participation</li>
+      <li><strong>IBM Certification</strong> – AI and Machine Learning Course Completion</li>
+    </ul>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2025 Joseph Ndung'u Mutunga | All Rights Reserved</p>
+</footer>
+
+<!-- SCRIPT -->
+<script>
+const typingText = document.querySelector('.typing-text');
+const phrases = [
+  'A REMOTE SENSING EXPERT',
+  'A GEOSPATIAL DEVELOPER',
+  'A GIS ANALYST',
+  'A DATA SCIENTIST',
+  'A FREELANCER'
+];
+let i = 0, j = 0, current = [], isDeleting = false;
+
+function typeLoop() {
+  typingText.innerHTML = current.join('');
+  if (i < phrases.length) {
+    if (!isDeleting && j <= phrases[i].length) {
+      current.push(phrases[i][j]);
+      j++;
+    }
+    if (isDeleting && j > 0) {
+      current.pop();
+      j--;
+    }
+    if (j === phrases[i].length) {
+      isDeleting = true;
+      setTimeout(typeLoop, 1200);
+      return;
+    }
+    if (isDeleting && j === 0) {
+      isDeleting = false;
+      i++;
+      if (i === phrases.length) i = 0;
+    }
+  }
+  setTimeout(typeLoop, isDeleting ? 60 : 100);
+}
+typeLoop();
+</script>
+</body>
+</html>

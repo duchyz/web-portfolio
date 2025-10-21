@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact | Joseph Ndung'u Mutunga</title>
+
+<style>
+/* ---------- GLOBAL ---------- */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: #222;
+  scroll-behavior: smooth;
+  background: #f8f9fa;
+  overflow-x: hidden;
+  padding-top: 80px; /* offset for fixed navbar */
+}
+h1, h2, h3 { margin: 0; }
+a { text-decoration: none; color: inherit; transition: color 0.3s; }
+a:hover { color: #00884b; }
+
+/* ---------- NAVBAR ---------- */
+.navbar {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  display: flex; align-items: center;
+  padding: 8px 20px;
+  background: #00cc88; color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+.navbar .inner { display: flex; align-items: center; width: 100%; gap: 16px; }
+.navbar .logo { display: flex; align-items: center; gap: 10px; flex: 0 0 auto; }
+.navbar .logo img { width: 64px; height: 64px; border-radius: 8px; object-fit: cover; }
+.navbar .logo span { font-size: 1.05rem; font-weight: 600; color: #fff; white-space: nowrap; }
+#nav-links {
+  list-style: none;
+  display: flex; gap: 18px; margin: 0; padding: 0;
+  align-items: center; justify-content: flex-end;
+  flex: 1 1 auto;
+  max-width: calc(100% - 220px);
+  white-space: nowrap;
+}
+#nav-links li { font-weight: 600; }
+#nav-links a { color: #fff; padding: 6px 8px; display: inline-block; }
+#nav-links a:hover { background: rgba(255,255,255,0.12); border-radius: 5px; }
+.menu-toggle { display: none; flex-direction: column; cursor: pointer; margin-left: 8px; }
+.menu-toggle span { height: 3px; width: 25px; background: #fff; margin: 4px 0; border-radius: 5px; }
+
+/* ---------- CONTACT HERO ---------- */
+.contact-hero {
+  height: 400px;
+  background: url('assets/contact.jpg') center/cover no-repeat;
+  display: flex; justify-content: center; align-items: center; text-align: center;
+  position: relative;
+}
+.contact-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,0.5);
+}
+.contact-hero h1 {
+  position: relative; z-index: 2;
+  color: #fff; font-size: 3rem;
+}
+
+/* ---------- CONTACT SECTION ---------- */
+.contact-section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px 40px;
+}
+.contact-info {
+  display: flex; flex-wrap: wrap;
+  justify-content: space-around; margin-bottom: 40px; gap: 20px;
+}
+.contact-info div {
+  background: #fff; border-radius: 10px; padding: 20px;
+  flex: 1 1 250px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+.contact-info div h3 { color: #00cc88; margin-bottom: 10px; }
+.contact-info div p { color: #333; font-size: 0.95rem; }
+
+.contact-form {
+  background: #fff; padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  margin-bottom: 20px;
+}
+.contact-form h2 { color: #00cc88; margin-bottom: 20px; text-align: center; }
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+.contact-form button {
+  background: #00cc88;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 100%;
+}
+.contact-form button:hover { background: #009966; }
+.success-msg {
+  display: none;
+  text-align: center;
+  margin-top: 15px;
+  color: #00884b;
+  font-weight: bold;
+}
+
+/* ---------- SOCIAL ICONS ---------- */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+.social-icons a {
+  display: inline-block;
+  position: relative;
+}
+.social-icons img {
+  width: 50px; height: 50px;
+  object-fit: contain;
+  transition: transform 0.3s;
+}
+.social-icons a:hover img {
+  transform: scale(1.1);
+}
+.social-icons a::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #222; color: #fff;
+  padding: 3px 8px; border-radius: 4px;
+  font-size: 0.75rem; white-space: nowrap;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s;
+}
+.social-icons a:hover::after { opacity: 1; }
+
+/* ---------- FOOTER ---------- */
+.footer {
+  background: #00cc88;
+  color: #fff;
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 0.95rem;
+  margin-top: 0;
+}
+.footer p { margin: 0; color: #007acc; }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .contact-info { flex-direction: column; align-items: center; }
+  #nav-links {
+    flex-direction: column;
+    display: none;
+    position: absolute;
+    top: 66px; left: 0;
+    width: 100%;
+    background: #00cc88;
+    padding: 14px 18px;
+    gap: 10px;
+  }
+  #nav-links.show { display: flex; }
+  #nav-links li {
+    width: 100%;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+  .menu-toggle { display: flex; margin-left: auto; }
+}
+</style>
+</head>
+
+<body>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="inner">
+    <div class="logo"><img src="assets/GeoSense.png" alt="Logo"><span>Geosense Solutions</span></div>
+    <div class="menu-toggle" id="menu-toggle"><span></span><span></span><span></span></div>
+    <ul id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="contact-hero">
+  <h1>Contact Me</h1>
+</section>
+
+<!-- CONTACT INFO + FORM -->
+<section class="contact-section">
+  <div class="contact-info">
+    <div><h3>Email</h3><p>josephmutunga706@gmail.com</p></div>
+    <div><h3>Phone</h3><p>0745142111</p></div>
+  </div>
+
+  <div class="contact-form">
+    <h2>Leave a Message</h2>
+    <form action="https://formspree.io/f/mzzjqwbd" method="POST" id="contactForm">
+      <input type="text" name="name" id="name" placeholder="Your Name" required>
+      <input type="email" name="_replyto" id="email" placeholder="Your Email" required>
+      <textarea name="message" id="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <div class="success-msg" id="successMsg">Message sent successfully!</div>
+  </div>
+
+  <div class="social-icons">
+    <a href="https://www.instagram.com/joseduchyz/" target="_blank" data-tooltip="Follow me on Instagram">
+      <img src="assets/instagram.jpeg" alt="Instagram">
+    </a>
+    <a href="https://x.com/joseduchyz" target="_blank" data-tooltip="Follow me on X/Twitter">
+      <img src="assets/x.jpeg" alt="Twitter">
+    </a>
+    <a href="https://www.linkedin.com/in/joseph-mutunga-91a63030a/" target="_blank" data-tooltip="Connect on LinkedIn">
+      <img src="assets/linkedin.png" alt="LinkedIn">
+    </a>
+    <a href="https://wa.me/message/BDIEL56LSRK4O1" target="_blank" data-tooltip="Chat on WhatsApp">
+      <img src="assets/whatapp.png" alt="WhatsApp">
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2025 Joseph Ndung'u Mutunga | All Rights Reserved</p>
+</footer>
+
+<!-- JS -->
+<script>
+document.getElementById('menu-toggle').addEventListener('click', ()=>{
+  document.getElementById('nav-links').classList.toggle('show');
+});
+
+const form = document.getElementById('contactForm');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const formData = new FormData(form);
+  const response = await fetch(form.action, {
+    method: form.method,
+    body: formData,
+    headers: { 'Accept': 'application/json' }
+  });
+  if (response.ok) {
+    document.getElementById('successMsg').style.display = 'block';
+    form.reset();
+  } else {
+    alert('Oops! There was a problem sending your message.');
+  }
+});
+</script>
+</body>
+</html>
